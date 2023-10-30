@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const SideBar = () => {
   return (
-    <section className="flex flex-col w-1/4 bg-[#f5f5f5] p-3 border">
+    <section className="flex h-screen flex-col w-1/4 bg-[#f5f5f5] p-3 border border-gray-300 border-opacity-30">
       <div className="">
         <h3 className="text-xl font-custom text-yellow-500 font-semibold">
           Customize Your Kente Cloth Design

@@ -10,7 +10,7 @@ const CustomizePage = () => {
         <Top/>
 
       <div className='flex mt-[0.16rem] gap-x-[0.16rem]'>
-        <SideBar/>
+        {/* <SideBar/> */}
         <Middle/>
         <Right/>
       </div>
