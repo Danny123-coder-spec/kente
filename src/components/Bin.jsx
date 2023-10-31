@@ -1,5 +1,5 @@
 import React from 'react'
-import bg from '../assets/kent.png'
+import bg from '../assets/img.png'
 import { useDrop } from 'react-dnd'
 
 const Bin = ({binnedItems}) => {

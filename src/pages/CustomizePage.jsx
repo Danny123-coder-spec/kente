@@ -6,11 +6,11 @@ import Top from '../components/Top';
 
 const CustomizePage = () => {
   return (
-    <div className='flex flex-col h-screen  '>
+    <div className=''>
         <Top/>
 
       <div className='flex mt-[0.16rem] gap-x-[0.16rem]'>
-        {/* <SideBar/> */}
+        
         <Middle/>
         <Right/>
       </div>

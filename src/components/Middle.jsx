@@ -33,7 +33,7 @@ const Middle = () => {
     }
   }, [])
   return (
-    <div className='flex-1 bg-[#f5f5f5] border border-gray-300 border-opacity-30 h-screen '>
+    <div className='flex-1 bg-[#f5f5f5] border border-gray-300 border-opacity-30  '>
       {/* <div className='flex items-center justify-center mt-4 perspective'>
         <img src={bg} alt="" className='w-96 h-96 hover:transform hover:rotate-left-right hover:scale-105 transition-transform duration-700' />
       </div> */}
