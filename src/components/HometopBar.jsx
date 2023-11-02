@@ -1,0 +1,65 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { CiCircleInfo } from 'react-icons/ci';
+import { CiCircleQuestion } from 'react-icons/ci';
+import { IoNotificationsOutline } from 'react-icons/io5';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+import noUser from '../assets/noUser.png';
+import ProfilePopUp from './ProfilePopUp';
+
+const HometopBar = () => {
+  const [toggle, setToggle] = useState(false);
+  const profileRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setToggle(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className=' relative w-full px-4 py-3 border-b border-b-[#bbbbbb] flex justify-end'>
+      <div className='flex gap-2 '>
+        <CiCircleInfo
+          size={35}
+          data-tooltip-id='detail'
+          className='cursor-pointer hover:bg-[#E8E8E9] p-1 rounded'
+        />
+        <CiCircleQuestion
+          size={35}
+          data-tooltip-id='support'
+          className='cursor-pointer text-xl  hover:bg-[#E8E8E9] p-1 rounded'
+        />
+
+        <IoNotificationsOutline
+          size={35}
+          data-tooltip-id='notification'
+          className='cursor-pointer text-xl  hover:bg-[#E8E8E9] p-1 rounded'
+        />
+
+        <div className='cursor-pointer' ref={profileRef}>
+          <img
+            src={noUser}
+            alt='Avator'
+            className='w-9 h-9 object-cover rounded-full'
+            onClick={() => setToggle(!toggle)}
+          />
+        </div>
+      </div>
+      {toggle && <ProfilePopUp />}
+
+      <ReactTooltip id='detail' place='bottom' content='Detail' />
+      <ReactTooltip id='support' place='bottom' content='Support' />
+      <ReactTooltip id='notification' place='bottom' content='Notification' />
+    </div>
+  );
+};
+
+export default HometopBar;

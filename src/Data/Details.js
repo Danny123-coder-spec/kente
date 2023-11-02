@@ -11,8 +11,14 @@ import sym10 from '../assets/sym10.png'
 import sym11 from '../assets/sym11.png'
 import sym12 from '../assets/sym12.png'
 import sym13 from '../assets/sym13.png'
-
-
+import sym14 from '../assets/sym14.png'
+import sym15 from '../assets/sym15.png'
+import sym16 from '../assets/sym16.png'
+import sym17 from '../assets/sym17.png'
+import sym18 from '../assets/sym18.png'
+import sym19 from '../assets/sym19.png'
+import sym20 from '../assets/sym20.png'
+import sym21 from '../assets/sym21.png'
 
 const detailsData = [
     {
@@ -89,7 +95,7 @@ const detailsData = [
     {
         id:11,
         img:sym11,
-        title:'Adwoa',
+        title:'Adwo',
         info:'	Calmness. A symbol for peace, tranquility, and quiet'
 
     },
@@ -109,16 +115,59 @@ const detailsData = [
     },
     {
         id:14,
-        img:sym4,
-        title:'Akoben',
+        img:sym14,
+        title:'Akofena',
+        info:'A sword of war (or the state ceremonial swords). A symbol of state authority, legality, the legitimized authority of a ruler, recognition of gallantry of heroic deeds.'
 
     },
     {
-        id:1,
-        img:sym1,
-        title:'Gye Nyame',
-        info:''
+        id:15,
+        img:sym15,
+        title:'Akoko Nan',
+        info:'The foot of a hen. A symbol for discipline coupled with care and nurturing.'
 
+    },
+    {
+        id:16,
+        img:sym16,
+        title:'Akoma Ntoaso',
+        info:'Joining of hearts. A symbol of agreement, togetherness and unity or a charter. An amplification of the concept of Akoma.'
+   
+    },
+    {
+        id:17,
+        img:sym17,
+        title:'Akoma',
+        info:'Heart. A symbol of love, goodwill, patience, faithfulness, fondness, endurance, and consistency.'
+   
+    },
+    {
+        id:18,
+        img:sym18,
+        title:'Aya',
+        info:'Fern. A symbol of endurance, independence, defiance against difficulties, hardiness, perseverance, and resourcefulness.'
+   
+    },
+    {
+        id:19,
+        img:sym19,
+        title:'Bese Saka',
+        info:'Bunch of cola nuts. A symbol of affluence, power, abundance, plenty, togetherness, and unity'
+   
+    },
+    {
+        id:20,
+        img:sym20,
+        title:'	Bi Nka Bi',
+        info:'No one should bite another. A symbol of justice, fairplay, freedom, peace, forgiveness, unity, harmony, and the avoidance of conflict or strife.'
+       
+    },
+    {
+        id:21,
+        img:sym21,
+        title:'Dame-Dame',
+        info:'	Chequered. A symbol of craftiness, intelligence, and strategy.'
+       
     },
 ]
 
