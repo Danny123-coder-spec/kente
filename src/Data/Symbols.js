@@ -19,8 +19,8 @@ import sym18 from '../assets/sym18.png'
 import sym19 from '../assets/sym19.png'
 import sym20 from '../assets/sym20.png'
 import sym21 from '../assets/sym21.png'
-// import sym18 from '../assets/sym18.png'
-// import sym18 from '../assets/sym18.png'
+// import sym22 from '../assets/sym22.png'
+// import sym23 from '../assets/sym23.png'
 
 const symbolsData = [
     {
@@ -170,6 +170,20 @@ const symbolsData = [
         info:'	Chequered. A symbol of craftiness, intelligence, and strategy.'
        
     },
+    // {
+    //     id:21,
+    //     img:sym22,
+    //     title:'Dono',
+    //     info:'The tension talking drum. A symbol of appelation, praise, goodwill and rhythm.'
+       
+    // },
+    // {
+    //     id:21,
+    //     img:sym23,
+    //     title:'Duafe',
+    //     info:'Wooden comb. A symbol of feminine consideration or good feminine qualities such as patience, prudence, fondness, love, and care.'
+       
+    // },
 ]
 
 export default symbolsData

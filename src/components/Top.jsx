@@ -211,7 +211,7 @@ const Top = () => {
                 <div className=" flex  text-sm flex-col font-custom cursor-pointer ">
                   <Link to='/' className="hover:bg-yellow-400 p-2.5" >Go to Home</Link>
                   <div className="bg-gray-400 w-full h-[0.25px]"></div>
-                  <span className="hover:bg-yellow-400 p-2.5">Logout</span>
+                  <a href='login' className="hover:bg-yellow-400 p-2.5">Logout</a>
                 </div>
 
               </div>
