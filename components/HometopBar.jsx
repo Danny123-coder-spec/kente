@@ -5,14 +5,30 @@ import { CiCircleQuestion, CiGrid41 } from 'react-icons/ci';
 import { BsSearch, BsTriangleFill } from 'react-icons/bs';
 import { BiSolidUpArrow } from 'react-icons/bi';
 import { IoNotificationsOutline } from 'react-icons/io5';
+import { FiLink2 } from 'react-icons/fi';
+import {AiOutlineClose } from 'react-icons/ai';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import noUser from '../assets/noUser.png';
 import ProfilePopUp from './ProfilePopUp';
+import {
+  Button,
+  Modal,
+
+  ModalBody,
+
+} from 'reactstrap';
+import KenteSash from './KenteSash';
+
 
 const HometopBar = () => {
   const [toggle, setToggle] = useState(false);
   const [search, setSearch] = useState(false);
   const [focus, setFocus] = useState(false);
+  const [primuim, setPremium] = useState(false);
+
+  const handlePremium = () => {
+    setPremium(!primuim)
+  }
 
   const handleClick = () => {
     setSearch(!search);
@@ -50,15 +66,15 @@ const HometopBar = () => {
                   <BsTriangleFill color="white" />
                 </div>
                 <input
-                placeholder='Search documents'
-                 type="text" 
-                 className={`outline-none 
+                  placeholder='Search documents'
+                  type="text"
+                  className={`outline-none 
                  border border-gray-300
                    p-1 text-sm 
-                  rounded ${focus && 'border border-gray-700 '}`} 
+                  rounded ${focus && 'border border-gray-700 '}`}
                   onFocus={() => setFocus(true)}
                   onBlur={() => setFocus(false)}
-                  />
+                />
 
               </div>
             )
@@ -94,9 +110,35 @@ const HometopBar = () => {
             onClick={() => setToggle(!toggle)}
           />
         </div>
-        <div className='bg-yellow-400 rounded-md px-6 cursor-pointer py-1.5'>
+        <div onClick={handlePremium} className='bg-yellow-400 rounded-md px-6 cursor-pointer py-1.5'>
           <span className='font-medium'>Upgrade</span>
         </div>
+        <Modal
+          className='modal'
+          isOpen={primuim}
+          handlePremium={
+            handlePremium
+          }
+
+        >
+          <ModalBody>
+            <div className='bg-white relative p-6 rounded-lg'>
+
+              <div className='flex flex-row items-center justify-between'>
+                <div className='flex flex-row items-center
+                gap-x-3 bg-[#f1f1f1] rounded-lg px-3 border border-gray-300 border-opacity-50 py-1'>
+                  <FiLink2 />
+                  <span>Premium</span>
+                </div>
+                <div className='cursor-pointer hover:bg-yellow-400 hover:bg-opacity-50 hover:rounded-full p-[0.25rem]'>
+                  <AiOutlineClose onClick={() => setPremium(false)} size={17} />
+                </div>
+              </div>
+              <KenteSash />
+            </div>
+          </ModalBody>
+
+        </Modal>
       </div>
       {toggle && <ProfilePopUp />}
 

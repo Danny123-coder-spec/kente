@@ -6,7 +6,7 @@ import { BiGridAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 
 const ProfilePopUp = () => {
-  
+
 
   return (
     <div className="absolute top-16 right-5 bg-white rounded-lg py-6 shadow-xl w-72 z-20">
@@ -21,19 +21,21 @@ const ProfilePopUp = () => {
           <BiGridAlt size={25} className="text-[#646E80]" />
           <span>My Designs</span>
         </div>
-        <div className="flex items-center gap-3 hover:bg-[#E8E8E9] px-4 py-3 cursor-pointer">
+        <Link
+          to='/account-settings'
+          className="flex items-center gap-3 hover:bg-[#E8E8E9] px-4 py-3 cursor-pointer">
           <AiOutlineSetting size={25} className="text-[#646E80]" />
-          <span>Profile</span>
-        </div>
+          <span>Account Settings</span>
+        </Link>
       </div>
       <div className='pt-2 border-t border-[#bbbbbb] px-4'>
-          <Link
+        <Link
           to='/login'
-           className="flex items-center gap-3 font-semibold hover:bg-[#E8E8E9] px-4 py-3 cursor-pointer">
-            <IoLogOutOutline size={25} className="text-[#646E80]" />
-            <span>Log Out</span>
-          </Link>
-        </div>
+          className="flex items-center gap-3 font-semibold hover:bg-[#E8E8E9] px-4 py-3 cursor-pointer">
+          <IoLogOutOutline size={25} className="text-[#646E80]" />
+          <span>Log Out</span>
+        </Link>
+      </div>
     </div>
   )
 }
