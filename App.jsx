@@ -11,6 +11,8 @@ import { DndProvider } from 'react-dnd';
 import Preview from './pages/Preview'
 import LandingPage from './pages/LandingPage'
 import Customize from './components/customization'
+import AccountSettings from './pages/AccountSettings'
+import BuyPlan from './pages/BuyPlan'
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route exact path='/whiteboard' element={<CustomizePage/>}/>
         <Route exact path='/preview' element={<Preview/>}/>
         <Route exact path='/steps' element={<Customize/>}/>
+        <Route exact path='/account-settings' element={<AccountSettings/>}/>
+        <Route exact path='/buyPlan' element={<BuyPlan/>}/>
         
         </Routes>
       </Router>
