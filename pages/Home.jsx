@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import HomeSideBar from '../components/HomeSideBar';
 import HometopBar from '../components/HometopBar';
-import { AiOutlinePlus, AiFillCloseCircle, AiOutlineClose  } from 'react-icons/ai';
+import { AiOutlinePlus, AiFillCloseCircle, AiOutlineClose } from 'react-icons/ai';
 import { IoChevronBackOutline } from 'react-icons/io5'
 import { FiLink2 } from 'react-icons/fi'
 import { BiSolidLockAlt } from 'react-icons/bi'
@@ -33,9 +33,16 @@ import { Environment, Center } from '@react-three/drei';
 import Shirt from '../canvas/Shirt';
 import PopUp from '../components/PopUp';
 import KenteSash from '../components/KenteSash';
+import Free from '../components/Free';
 
 const Home = () => {
-  
+
+  const images = [
+    { id: 1, src: s1 },
+    { id: 2, src: s2 }
+  ]
+
+
   const premiumRef = useRef(null);
 
   const [modal, setModal] = useState(false);
@@ -43,22 +50,34 @@ const Home = () => {
   const [showVertical, setShowVertical] = useState(false);
   const [show, setShow] = useState(false);
   const [kenteSash, setKenteSash] = useState(false);
+  const [free, setFree] = useState(false);
+  const [free2, setFree2] = useState(false);
   const [primiumClose, setPremiumClose] = useState(false);
-  
+
   useEffect(() => {
     const handleClickPremium = (event) => {
-      if(premiumRef.current && !premiumRef.current.contains(event.target) ) {
+      if (premiumRef.current && !premiumRef.current.contains(event.target)) {
         setPremiumClose(false);
       }
     };
 
-    document.addEventListener('click', handleClickPremium );
-    document.removeEventListener('click', handleClickPremium);
-  });
+    document.addEventListener('click', handleClickPremium);
+    return () => {
+      document.removeEventListener('click', handleClickPremium);
+    }
+  }, []);
 
   const handleKente = () => {
     setKenteSash(!kenteSash)
-  }
+  };
+  const handleFree = () => {
+    setFree(!free)
+  };
+  const handleFree2 = () => {
+    setFree2(!free2)
+  };
+
+
 
   const handleShow = () => {
     setShow(!show);
@@ -96,38 +115,71 @@ const Home = () => {
               <div className='grid grid-cols-4  gap-2.5 mt-6'>
                 <button
                   onClick={toggle}
-                  className='flex flex-col gap-2 py-6 px-2 border border-yellow-400 items-center justify-center rounded-lg'>
+                  className='flex flex-col gap-2 py-6 px-2 border hover:transform hover:rotate-left-right
+                  hover:scale-105 transition-transform duration-700 border-yellow-400 items-center justify-center rounded-lg'>
                   <AiOutlinePlus className='text-yellow-400' />
                   <span className='text-yellow-400'>New WhiteBoard</span>
                 </button>
-                <div className='absolute right-[33rem] top-[10.5rem] pl-44'>
+                <div className='absolute z-10 right-[33rem] top-[10.5rem] pl-44'>
                   <span className='text-xs font-medium text-gray-400'>Free</span>
                 </div>
-                <div className=' flex flex-col gap-2 py-5 cursor-pointer  border border-yellow-400 items-center rounded-lg justify-center'>
+                <div onClick={handleFree2} className=' bg-white hover:transform hover:rotate-left-right
+                  hover:scale-105 transition-transform duration-700 border border-gray-300 border-opacity-20 shadow-xl flex flex-col gap-2 py-5 cursor-pointer  items-center rounded-lg justify-center'>
 
                   <img src={s2} alt="" className='w-20 h-20 ' />
                   <div className='w-full h-[0.03rem] bg-yellow-400'></div>
-                  <a href='' className='text-gray-500 text-[0.95rem] mt-0.5 '>Kente Stole</a>
+                  <a href='' className='text-gray-500 underline text-[0.95rem] mt-0.5 '>Kente Stole</a>
                 </div>
-                <div className='absolute bg-[] right-[18rem] top-[10.5rem] pl-44'>
+
+                <Modal
+                  className='modal'
+                  isOpen={free2}
+                  handleFree2={
+                    handleFree2
+                  }
+                  ref={premiumRef}
+                >
+                  <ModalBody>
+                    <Free name='Kente Stole' />
+                  </ModalBody>
+
+                </Modal>
+                <div className='absolute z-10 right-[18rem] top-[10.5rem] pl-44'>
                   <span className='text-xs font-medium text-gray-400'>Free</span>
                 </div>
-                <div className=' flex flex-col  gap-2 py-5 cursor-pointer  border border-yellow-400 items-center rounded-lg justify-center'>
+                <div onClick={handleFree} className=' bg-white hover:transform hover:rotate-left-right
+                  hover:scale-105 transition-transform duration-700 border border-gray-300 border-opacity-20 shadow-xl flex flex-col  gap-2 py-5 cursor-pointer   items-center rounded-lg justify-center'>
                   <div className=''>
                     <img src={s3} alt="" className='w-[5rem] h-[5rem]' />
                   </div>
                   <div className='w-full h-[0.03rem] bg-yellow-400'></div>
-                  <a href='' className='text-gray-500 text-[0.95rem] mt-0.5'>Graduation Stole</a>
+                  <a href='' className='text-gray-500 underline text-[0.95rem] mt-0.5'>Graduation Stole</a>
                 </div>
-                <div className='absolute right-14 top-[10.5rem] ml-48'>
-                  <img src={crown} alt="" className='w-4 h-4' />
+                <Modal
+                  className='modal'
+                  isOpen={free}
+                  handleFree={
+                    handleFree
+                  }
+                  ref={premiumRef}
+                >
+                  <ModalBody>
+                    <Free name='Graduation Stole' />
+                  </ModalBody>
+
+                </Modal>
+                <div className='absolute z-10 right-[3.2rem] top-[10.7rem] ml-48'>
+                  <img src={crown} alt="" className='w-5 h-5' />
                 </div>
-                <div onClick={handleKente} className=' flex flex-col gap-2 py-5 cursor-pointer  border border-yellow-400 items-center rounded-lg justify-center'>
+                <div onClick={handleKente} className='bg-white border border-gray-300
+                 border-opacity-20  bg-opacity-80 shadow-xl hover:transform hover:rotate-left-right
+                  hover:scale-105 transition-transform duration-700 flex flex-col 
+                gap-2 py-5 cursor-pointer   items-center rounded-lg justify-center'>
                   <div className=''>
                     <img src={s1} alt="" className='w-20 h-20' />
                   </div>
                   <div className='w-full h-[0.03rem] bg-yellow-400'></div>
-                  <a href='' className='text-gray-500 text-[0.95rem] mt-0.5'>Kente Sash</a>
+                  <a href='' className='text-gray-500 underline text-[0.95rem] mt-0.5'>Kente Sash</a>
 
                 </div>
                 <Modal
@@ -137,7 +189,6 @@ const Home = () => {
                     handleKente
                   }
                   ref={premiumRef}
-
                 >
                   <ModalBody>
                     <div className='bg-white relative p-6 rounded-lg'>

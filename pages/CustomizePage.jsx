@@ -256,7 +256,7 @@ const CustomizePage = () => {
                           </div>
                         ))
 
-                      ) 
+                      )
                     }
                   </div>
                 )
